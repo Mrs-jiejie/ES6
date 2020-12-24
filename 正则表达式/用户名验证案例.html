@@ -8,21 +8,20 @@
     <style>
         .wrong {
             color: red;
-            display: block;
+            /* display: block; */
         }
         
         .correct {
             color: rgb(14, 114, 39);
-            display: block;
+            /* display: block; */
         }
         
         .gray {
             color: gray;
         }
-        
-        span {
+        /* span {
             display: none;
-        }
+        } */
     </style>
 </head>
 
@@ -34,7 +33,7 @@
     <script>
         var user = /^[a-zA-Z0-9_-]{3,16}$/
         $(function() {
-            $('input').blur(function() {
+            $('input').on('blur', function() {
                 console.log($('input').val())
                 console.log(user.test($('input').val()))
                 if (user.test($('input').val())) {
@@ -42,7 +41,8 @@
                     $('span').text("用户名输入符合规范")
                     console.log(123)
                 } else {
-                    $('span').toggleClass('wrong')
+                    $('span').removeClass('correct').addClass('wrong')
+                        // 问题 $('span').toggleClass('wrong') bug  颜色不变为红色 ?
                     $('span').text("用户名只能输入英文字母、数字、下划线、短横线组合的6-18位数")
                 }
 
