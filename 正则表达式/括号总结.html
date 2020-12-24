@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式中的特殊字符--括号总结</title>
+</head>
+
+<body>
+    <!-- 正则表达式中的特殊字符--括号总结 -->
+    <script>
+        // 括号总结
+        // 1.大活号量词符，里面表示重复次数
+        // 2.中括号字符集合。匹配方括号中的任意字符
+        // 3.小括号表示优先级
+        // 可以在线测试: https://c.runoob.com/front-end/854  (正则表达式在线测试 | 菜鸟工具)
+        var reg = /^abc{2}$/ // 重复前面的一个字符  abcc
+        console.log(reg.test('abc'))
+        console.log(reg.test('abcabcabc'))
+        console.log(reg.test('abcc'))
+
+
+        var reg = /^(abc){2}$/ // 重复前面的一个字符  abc重复两次
+        console.log(reg.test('abc'))
+        console.log(reg.test('abcabc'))
+        console.log(reg.test('abcc'))
+
+
+        var reg = /^[abc]{2}$/ // 重复前面的一个字符  
+        console.log(reg.test('abc'))
+        console.log(reg.test('abcabc'))
+        console.log(reg.test('abcc'))
+    </script>
+
+</body>
+
+</html>
