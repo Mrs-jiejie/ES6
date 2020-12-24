@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式之量词</title>
+</head>
+
+<body>
+    <script>
+        // 量词： 用来设定某个模式出现的次数
+        // 简单理解： 就是让下面的a这个字符重复出现多少次
+        // var reg6 = /^a$/;
+
+        // * 相当于 >= 0 可以出现0次或者很多次
+        var reg61 = /^a*$/;
+        console.log(reg61.test(''));
+        console.log(reg61.test('a'));
+        console.log(reg61.test('aaaaa'));
+        console.log('----------------')
+
+        // ? 相当于 1 || 0  次
+        var reg62 = /^a?$/;
+        console.log(reg62.test(''));
+        console.log(reg62.test('a'));
+        console.log(reg62.test('aaaaa'));
+        console.log('----------------')
+
+        // + 相当于 >= 1 可以出现1次以上
+        var reg63 = /^a+$/;
+        console.log(reg63.test(''));
+        console.log(reg63.test('a'));
+        console.log(reg63.test('aaaaa'));
+        console.log('----------------')
+
+        // {n}  重复次数  n  次     {3}   3次
+        var reg64 = /^a{3}$/;
+        console.log(reg64.test(''));
+        console.log(reg64.test('a'));
+        console.log(reg64.test('aa'));
+        console.log(reg64.test('aaa'));
+        console.log(reg64.test('aaaa'));
+        console.log('----------------')
+
+        // {n，}  重复次数  >= n  次     {3，}   >=3
+        var reg65 = /^a{3,}$/;
+        console.log(reg65.test(''));
+        console.log(reg65.test('a'));
+        console.log(reg65.test('aa'));
+        console.log(reg65.test('aaa'));
+        console.log(reg65.test('aaaa'));
+        console.log(reg65.test('aaaaaaa'));
+        console.log('----------------')
+
+        // {n,m}  重复次数  n-m 次之间    包括n，m 次 {3，5}    3-5次
+        var reg65 = /^a{3,5}$/;
+        console.log(reg65.test('aaa'));
+        console.log(reg65.test('aaaa'));
+        console.log(reg65.test('aaaaa'));
+        console.log(reg65.test('aaaaaaa'));
+        console.log('----------------')
+
+
+        var reg6 = /^[a-zA-Z0-9_-]{6,16}$/;
+        //1这个模式用户只能输入英文字母数字下划线
+        // 短横线但是有边界符和[]这就限定了只能多选1
+        // {6,16} 中间不要有空格
+
+        console.log(reg6.test('a'));
+
+        console.log(reg6.test('8'));
+
+        console.log(reg6.test('18'));
+
+        console.log(reg6.test('aa'));
+
+        console.log('-----------');
+
+        console.log(reg6.test('andy-red'));
+
+        console.log(reg6.test('andy_red'));
+
+        console.log(reg6.test('andy007'));
+
+        console.log(reg6.test('andy!007')) // !  不在 可选择范围之内
+    </script>
+
+</body>
+
+</html>

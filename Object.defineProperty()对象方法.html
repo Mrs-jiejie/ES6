@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperty()对象方法</title>
+</head>
+
+<body>
+    <script>
+        // Object.defineProperty(obj,prop,descriptor)对象方法
+        // (1) 修改属性对象的属性值
+        var obj = {
+                id: 1,
+                name: "小米",
+                price: "1000"
+            }
+            // value 设置属性的值，默认为undefined
+        Object.defineProperty(obj, "name", {
+            value: "华为"
+        })
+        console.log(obj) // name:"华为"
+
+        // （2）enumerable 如果值为false 则不允许被遍历，默认为false
+        // Object.keys(obj)遍历对象，返回一个新数组（将属性名放进新数组）
+        Object.defineProperty(obj, "price", {
+            enumerable: false
+        })
+        console.log(obj)
+        console.log(Object.keys(obj)) //  ["id", "name"]   price不会被枚举
+
+        // (3) configurable 目标属性是否可以被删除或是否可以再次修改特性 （true/false）默认为false     
+        // 值为false 时是不可以修改该属性，并且不能再修改Object.defineProperty(obj,prop,descriptor) 
+        // 第三个参数descriptor中的属性特性
+        Object.defineProperty(obj, "id", {
+            configurable: false,
+            writable: false,
+            enumerable: false
+        })
+        delete obj.id
+        console.log(obj) // id: 1 任然在  
+
+        // Object.defineProperty(obj, "id", {
+        //     configurable: true,
+        //     writable: true,
+        //     enumerable: true
+        // })
+        // obj.id = 2
+        // console.log(obj)
+        // console.log(Object.keys(obj)) // 结果会报错 Uncaught TypeError: Cannot redefine property: id   不能重新设置id的属性
+
+        // (4) writable  属性值是否可被被重写 （true/false）默认为false writable: false adress属性值不可以在被修改
+        Object.defineProperty(obj, "adress", {
+            value: "学挖机北京山东找南翔",
+            writable: false
+        })
+        obj.adress = "长沙"
+        console.log(obj) // adress: "学挖机北京山东找南翔"
+    </script>
+
+</body>
+
+</html>

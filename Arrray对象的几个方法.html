@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js的Array对象有map（）、some（）、every（）、filter（）
+        arr = [22, 14, 7, 9];
+        var sum = 0;
+        arr.map(function(vaule, index, arr) {
+            console.log(vaule)
+            sum += vaule
+        })
+        console.log(sum);
+
+        var newArr = arr.filter(function(vaule, index, arr) {
+            console.log(vaule)
+            return vaule >= 20
+        })
+        console.log(newArr)
+
+        var flag = arr.some(function(vaule, index, arr) {
+            console.log(vaule)
+            return vaule >= 20
+        })
+        console.log(flag)
+
+        var flag1 = arr.every(function(vaule, index, arr) {
+            console.log(vaule)
+            return vaule >= 20
+        })
+        console.log(flag1)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户名验证案例</title>
+    <style>
+        .wrong {
+            color: red;
+            display: block;
+        }
+        
+        .correct {
+            color: rgb(14, 114, 39);
+            display: block;
+        }
+        
+        .gray {
+            color: gray;
+        }
+        
+        span {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input placeholder="   请输入用户名">
+    <span></span>
+    <!-- <span class="wrong">123</span> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        var user = /^[a-zA-Z0-9_-]{3,16}$/
+        $(function() {
+            $('input').blur(function() {
+                console.log($('input').val())
+                console.log(user.test($('input').val()))
+                if (user.test($('input').val())) {
+                    $('span').toggleClass('correct')
+                    $('span').text("用户名输入符合规范")
+                    console.log(123)
+                } else {
+                    $('span').toggleClass('wrong')
+                    $('span').text("用户名只能输入英文字母、数字、下划线、短横线组合的6-18位数")
+                }
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>
