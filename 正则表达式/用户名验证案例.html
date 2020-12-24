@@ -31,7 +31,6 @@
         var user = /^[a-zA-Z0-9_-]{3,16}$/
         $(function() {
             $('input').on('blur', function() {
-
                 if (user.test($('input').val())) {
                     $("span").css("color", "green");
 
