@@ -8,41 +8,40 @@
     <style>
         .wrong {
             color: red;
-            display: block;
+            font-size: 20px;
+            /* display: block; */
         }
         
         .correct {
             color: rgb(14, 114, 39);
-            display: block;
         }
         
         .gray {
             color: gray;
-        }
-        
-        span {
-            display: none;
         }
     </style>
 </head>
 
 <body>
     <input placeholder="   请输入用户名">
-    <span></span>
+    <span id="text"></span>
     <!-- <span class="wrong">123</span> -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script>
         var user = /^[a-zA-Z0-9_-]{3,16}$/
         $(function() {
-            $('input').blur(function() {
-                console.log($('input').val())
-                console.log(user.test($('input').val()))
+            $('input').on('blur', function() {
+
                 if (user.test($('input').val())) {
-                    $('span').toggleClass('correct')
+                    $("span").css("color", "green");
+
                     $('span').text("用户名输入符合规范")
-                    console.log(123)
-                } else {
-                    $('span').toggleClass('wrong')
+
+                } else if (!user.test($('input').val())) {
+                    w
+                    // $('span').removeClass('correct').addClass('wrong')
+                    // $("span").css("color", "red"); // 问题bug  颜色不变为红色 ?
+                    $("span").addClass('wrong');
                     $('span').text("用户名只能输入英文字母、数字、下划线、短横线组合的6-18位数")
                 }
 
