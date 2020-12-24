@@ -8,16 +8,10 @@
     <style>
         .wrong {
             color: red;
-            font-size: 20px;
-            /* display: block; */
         }
         
         .correct {
             color: rgb(14, 114, 39);
-        }
-        
-        .gray {
-            color: gray;
         }
     </style>
 </head>
@@ -33,21 +27,16 @@
             $('input').on('blur', function() {
                 if (user.test($('input').val())) {
                     $("span").css("color", "green");
-
                     $('span').text("用户名输入符合规范")
-
                 } else if (!user.test($('input').val())) {
-                    w
                     // $('span').removeClass('correct').addClass('wrong')
                     // $("span").css("color", "red"); // 问题bug  颜色不变为红色 ?
                     $("span").addClass('wrong');
                     $('span').text("用户名只能输入英文字母、数字、下划线、短横线组合的6-18位数")
                 }
-
             })
         })
     </script>
-
 </body>
 
 </html>
