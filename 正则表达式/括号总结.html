@@ -19,18 +19,26 @@
         console.log(reg.test('abc'))
         console.log(reg.test('abcabcabc'))
         console.log(reg.test('abcc'))
+        console.log('-------------')
 
 
         var reg = /^(abc){2}$/ // 重复前面的一个字符  abc重复两次
         console.log(reg.test('abc'))
         console.log(reg.test('abcabc'))
         console.log(reg.test('abcc'))
+        console.log('-------------')
 
 
         var reg = /^[abc]{2}$/ // 重复前面的一个字符  
         console.log(reg.test('abc'))
         console.log(reg.test('abcabc'))
         console.log(reg.test('abcc'))
+        console.log('-------------')
+
+        var reg1 = /\d/
+        console.log(reg1.test('0123'))
+        console.log(reg1.test('0'))
+        console.log(reg1.test('2'))
     </script>
 
 </body>
