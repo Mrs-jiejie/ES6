@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符应用：合并数组</title>
+</head>
+
+<body>
+    <script>
+        // 方法一 
+        // 扩展运算符应用：合并数组
+        let ary1 = [1, 2, 3];
+        let ary2 = [3, 5, 6];
+        var ary3 = [...ary1, ...ary2]
+        console.log(ary3)
+
+        //  方法二
+        let ary4 = [1, 2, 3];
+        let ary5 = [3, 5, 6];
+        // ary4.push = [...ary5];
+        ary4.push = [3, 5, 6];
+        console.log(ary4)
+        console.log(ary4.length) // 长度为什么还是不变？
+    </script>
+</body>
+
+</html>

@@ -29,8 +29,8 @@
                     $('span').text("用户名输入符合规范")
                 } else if (!user.test($('input').val())) {
                     // $('span').removeClass('correct').addClass('wrong')
-                    // $("span").css("color", "red"); // 问题bug  颜色不变为红色 ?
-                    $("span").addClass('wrong');
+                    $("span").css("color", "red"); // 问题bug  颜色不变为红色 ?
+                    // $("span").addClass('wrong');
                     $('span').text("用户名只能输入英文字母、数字、下划线、短横线组合的6-18位数")
                 }
             })
